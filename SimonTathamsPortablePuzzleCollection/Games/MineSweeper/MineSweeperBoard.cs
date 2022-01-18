@@ -37,9 +37,9 @@ namespace SimonTathamsPortablePuzzleCollection.Games.MineSweeper
 
         public void CalculateCellValues()
         {
-            for(int row = 1; row < RowCount-1; row++)
+            for(int row = 0; row < RowCount; row++)
             {
-                for(int col = 1; col < ColCount-1; col++)
+                for(int col = 0; col < ColCount; col++)
                 {
                     if (Board[row][col].value != -1)
                     {
@@ -47,10 +47,14 @@ namespace SimonTathamsPortablePuzzleCollection.Games.MineSweeper
                         {
                             for (int colOffset = -1; colOffset <= 1; colOffset++)
                             {
-                                if(Board[row + rowOffset][col + colOffset].value == -1)
+                                if(row+rowOffset > -1 && row+rowOffset < Board.Count && col+colOffset > -1 && col+colOffset < Board[0].Count)
                                 {
-                                    Board[row][col].value++;
+                                    if (Board[row + rowOffset][col + colOffset].value == -1)
+                                    {
+                                        Board[row][col].value++;
+                                    }
                                 }
+
                             }
                         }
                     }
@@ -65,8 +69,8 @@ namespace SimonTathamsPortablePuzzleCollection.Games.MineSweeper
 
             while (minesPlaced < MineCount)
             {
-                int row = r.Next(1,Board.Count-1);
-                int col = r.Next(1, Board[0].Count-1);
+                int row = r.Next(0,Board.Count);
+                int col = r.Next(0, Board[0].Count);
                 if (Board[row][col].value == 0)
                 {
                     Board[row][col].value = -1;

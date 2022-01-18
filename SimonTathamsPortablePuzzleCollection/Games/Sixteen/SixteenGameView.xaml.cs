@@ -57,40 +57,41 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Sixteen
                 {
                     SixteenArrowButton btn = null;
                     
-                    if (r == 0 && c != 0 &&  c!=cols+1)
+                    if (r == 0 && c != 0 &&  c!=cols+1) //Arrow Up
                     {
                         btn = new SixteenArrowButton(0, r, 1, 0);
                         btn.Content = "5";
                     }
-                    else if (r == rows + 1 && c!=0 && c!=cols+1)
+                    else if (r == rows + 1 && c!=0 && c!=cols+1) //Arrow Down
                     {
                         btn = new SixteenArrowButton(0, r, -1, 0);
                         btn.Content = "6";
                     }
-                    else if (c == 0 && r!=rows+1 && r!=0)
+                    else if (c == 0 && r!=rows+1 && r!=0) //Arrow Left
                     {
                         
                         btn = new SixteenArrowButton(c, 0, 0, 1);
                         btn.Content = "3";
 
                     }
-                    else if(c == cols + 1 && r!=rows+1 && r!=0)
+                    else if(c == cols + 1 && r!=rows+1 && r!=0) //Arrow Right
                     {
                 
                         btn = new SixteenArrowButton(0, r, 0, -1);
                         btn.Content = "4";
                     }
 
-                    if(btn != null)
+                    if(btn != null) //Wenn ein Arrow Gecklickt worden ist
                     {
-                        btn.FontSize = 40;
+                        btn.FontSize = 40; //Arrow Size
                         btn.FontFamily = new FontFamily("Marlett");
                         btn.Click += new RoutedEventHandler(Arrow_Click);
                         GridSixteenBoard.Children.Add(btn);
                         Grid.SetRow(btn, r);
                         Grid.SetColumn(btn, c);
                         
-                    }else if(r==0 || r==rows+1 || c==0|| c==cols+1){
+                    }else if(r==0 || r==rows+1 || c==0|| c==cols+1) //Die 4 Ecken
+                    {
                         //conrer Piece
                     }
                     else
@@ -99,7 +100,11 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Sixteen
                         number.FontSize = 20;
                         number.VerticalAlignment = VerticalAlignment.Center;
                         number.HorizontalAlignment = HorizontalAlignment.Center;
+
+                        //Zahl die momentan drin steht
                         number.Text = (r * rows + c).ToString();
+                        
+
                         GridSixteenBoard.Children.Add(number);
                         Grid.SetRow(number, r);
                         Grid.SetColumn(number, c);
@@ -110,7 +115,7 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Sixteen
         }
 
 
-public void Arrow_Click(object sender, RoutedEventArgs e)
+        public void Arrow_Click(object sender, RoutedEventArgs e)
         {
             SixteenArrowButton btn = sender as SixteenArrowButton;
             int testRow = btn.Row;
