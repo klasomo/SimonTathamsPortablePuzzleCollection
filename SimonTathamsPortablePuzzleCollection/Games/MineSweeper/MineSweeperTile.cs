@@ -8,7 +8,7 @@ namespace SimonTathamsPortablePuzzleCollection.Games.MineSweeper
 {
     class MineSweeperTile
     {
-        private enum CellValue
+        public enum CellValue
         {
             Bomb = -1,
             Empty,
@@ -21,7 +21,16 @@ namespace SimonTathamsPortablePuzzleCollection.Games.MineSweeper
             Seven,
             Eight 
         }
-        public bool isRevealed { get; private set; }
-        public int value { get; private set; }
+        public bool isRevealed { get; set; }
+        public int value { get; set; }
+
+        public bool isFlagMarked { get; set; }
+
+        public MineSweeperTile()
+        {
+            isRevealed = false;
+            value = 0;
+            isFlagMarked = false;
+        }
     }
 }

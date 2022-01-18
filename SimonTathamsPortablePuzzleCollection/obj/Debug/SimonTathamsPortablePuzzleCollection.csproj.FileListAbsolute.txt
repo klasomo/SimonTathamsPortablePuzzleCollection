@@ -18,3 +18,7 @@ C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPo
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\MineSweeper\MineSweeperGameView.baml
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\GamesToolbar.g.cs
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\GamesToolbar.baml
+C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Sixteen\SixteenGameView.g.cs
+C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Sixteen\SixteenGameView.baml
+C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Guess\GuessGameView.g.cs
+C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Guess\GuessGameView.baml

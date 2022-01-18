@@ -59,7 +59,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Games\Guess\GuessGameView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Games\MineSweeper\MineSweeperGameView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Games\Sixteen\SixteenGameView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -74,12 +82,19 @@
     <Compile Include="Games\GamesToolbar.xaml.cs">
       <DependentUpon>GamesToolbar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Games\Guess\GuessGameView.xaml.cs">
+      <DependentUpon>GuessGameView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Games\MineSweeper\MineSweeperBoard.cs" />
     <Compile Include="Games\MineSweeper\MineSweeperTile.cs" />
     <Compile Include="Games\MineSweeper\MineSweeperGameView.xaml.cs">
       <DependentUpon>MineSweeperGameView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Games\MineSweeper\MineSweeperTileButton.cs" />
+    <Compile Include="Games\Sixteen\SixteenArrowButton.cs" />
+    <Compile Include="Games\Sixteen\SixteenGameView.xaml.cs">
+      <DependentUpon>SixteenGameView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -110,6 +125,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Games\MineSweeper\Assets\Bomb.png.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

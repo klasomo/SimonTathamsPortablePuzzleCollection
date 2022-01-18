@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\App.xaml
-3-4274956
+5-73150861
 
-102117760060
+13188639969
 13-1505183044
-Games\GamesToolbar.xaml;Games\MineSweeper\MineSweeperGameView.xaml;MainWindow.xaml;
+Games\GamesToolbar.xaml;Games\Guess\GuessGameView.xaml;Games\MineSweeper\MineSweeperGameView.xaml;Games\Sixteen\SixteenGameView.xaml;MainWindow.xaml;
 
 False
 
