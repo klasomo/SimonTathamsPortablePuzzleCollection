@@ -8,19 +8,6 @@ namespace SimonTathamsPortablePuzzleCollection.Games.MineSweeper
 {
     class MineSweeperTile
     {
-        public enum CellValue
-        {
-            Bomb = -1,
-            Empty,
-            One,
-            Two,
-            Three,
-            Four,
-            Five,
-            Six,
-            Seven,
-            Eight 
-        }
         public bool isRevealed { get; set; }
         public int value { get; set; }
 

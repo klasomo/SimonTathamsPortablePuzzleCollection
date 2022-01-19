@@ -54,7 +54,6 @@ namespace SimonTathamsPortablePuzzleCollection.Games.MineSweeper
                                         Board[row][col].value++;
                                     }
                                 }
-
                             }
                         }
                     }

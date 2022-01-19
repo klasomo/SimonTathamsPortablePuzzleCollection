@@ -22,3 +22,5 @@ C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPo
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Sixteen\SixteenGameView.baml
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Guess\GuessGameView.g.cs
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Guess\GuessGameView.baml
+C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Flip\FlipGameView.g.cs
+C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Flip\FlipGameView.baml

@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace SimonTathamsPortablePuzzleCollection.Games.MineSweeper
+namespace SimonTathamsPortablePuzzleCollection.Games.Flip
 {
-    public class MineSweeperTileButton : Button
+    class FlipBoardTileButton: Button
     {
         private int row;
         private int col;
@@ -23,7 +23,7 @@ namespace SimonTathamsPortablePuzzleCollection.Games.MineSweeper
             set { col = value; }
         }
 
-        public MineSweeperTileButton(int row, int col)
+        public FlipBoardTileButton(int row, int col)
         {
             Row = row;
             Col = col;

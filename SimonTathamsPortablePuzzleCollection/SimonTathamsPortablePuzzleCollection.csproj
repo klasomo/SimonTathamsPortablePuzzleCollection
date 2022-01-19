@@ -55,6 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Games\Flip\FlipGameView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Games\GamesToolbar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -78,6 +82,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Games\Flip\FlipBoard.cs" />
+    <Compile Include="Games\Flip\FlipBoardTileButton.cs" />
+    <Compile Include="Games\Flip\FlipGameView.xaml.cs">
+      <DependentUpon>FlipGameView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Games\GamesToolbar.xaml.cs">
       <DependentUpon>GamesToolbar.xaml</DependentUpon>
