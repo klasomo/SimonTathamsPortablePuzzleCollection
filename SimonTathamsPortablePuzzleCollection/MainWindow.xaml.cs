@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace SimonTathamsPortablePuzzleCollection
 {
@@ -20,9 +21,23 @@ namespace SimonTathamsPortablePuzzleCollection
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<UserControl> gameList = new List<UserControl>();
         public MainWindow()
         {
+            GetThumbnails();
             InitializeComponent();
+            
+        }
+
+        private void GetThumbnails()
+        {
+            string folderPath = "../../Games";
+            foreach (string file in Directory.GetFiles(folderPath,"Thumbnail*.*",SearchOption.AllDirectories))
+            {
+                Image Thumbnail = new Image();
+                Uri uri = new Uri(file,UriKind.Relative);
+                Thumbnail.Source = new BitmapImage(uri);
+            }
         }
     }
 }

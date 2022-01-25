@@ -24,3 +24,7 @@ C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPo
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Guess\GuessGameView.baml
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Flip\FlipGameView.g.cs
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Flip\FlipGameView.baml
+C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Flood\FloodGameView.g.cs
+C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Flood\FloodGameView.baml
+C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Fifteen\FifteenGameView.g.cs
+C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Fifteen\FifteenGameView.baml

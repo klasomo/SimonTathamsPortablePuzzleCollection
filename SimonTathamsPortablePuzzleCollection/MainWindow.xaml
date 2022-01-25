@@ -8,12 +8,16 @@
         xmlns:Sixteen ="clr-namespace:SimonTathamsPortablePuzzleCollection.Games.Sixteen"
         xmlns:Guess ="clr-namespace:SimonTathamsPortablePuzzleCollection.Games.Guess"
         xmlns:Flip ="clr-namespace:SimonTathamsPortablePuzzleCollection.Games.Flip"
+        xmlns:Flood ="clr-namespace:SimonTathamsPortablePuzzleCollection.Games.Flood"
+        xmlns:Fifteen ="clr-namespace:SimonTathamsPortablePuzzleCollection.Games.Fifteen"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
     <Grid>
         <!--<MineSweeper:MineSweeperGameView x:Name="MineSweeperView" DockPanel.Dock="Top" VerticalAlignment="Top" Height="400"/>-->
         <!--<Sixteen:SixteenGameView x:Name="SixteenView" DockPanel.Dock="Top" Height="400"/>-->
-        <Flip:FlipGameView x:Name="FlipView" DockPanel.Dock="Top" Height="400"/>
+        <!--<Flip:FlipGameView x:Name="FlipView" DockPanel.Dock="Top" Height="400"/>-->
+        <!--<Flood:FloodGameView/>-->
+        <Fifteen:FifteenGameView/>
     </Grid>
 </Window>

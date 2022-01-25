@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\App.xaml
-6-181427544
+8354322331
 
-161385969254
+21-767365963
 13-1505183044
-Games\Flip\FlipGameView.xaml;Games\GamesToolbar.xaml;Games\Guess\GuessGameView.xaml;Games\MineSweeper\MineSweeperGameView.xaml;Games\Sixteen\SixteenGameView.xaml;MainWindow.xaml;
+Games\Fifteen\FifteenGameView.xaml;Games\Flip\FlipGameView.xaml;Games\Flood\FloodGameView.xaml;Games\GamesToolbar.xaml;Games\Guess\GuessGameView.xaml;Games\MineSweeper\MineSweeperGameView.xaml;Games\Sixteen\SixteenGameView.xaml;MainWindow.xaml;
 
 False
 

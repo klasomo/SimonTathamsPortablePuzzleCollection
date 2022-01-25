@@ -55,7 +55,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Games\Fifteen\FifteenGameView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Games\Flip\FlipGameView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Games\Flood\FloodGameView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -83,10 +91,19 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Games\Fifteen\FifteenGameController.cs" />
+    <Compile Include="Games\Fifteen\FifteenGameView.xaml.cs">
+      <DependentUpon>FifteenGameView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Games\Fifteen\FifteenTileButton.cs" />
     <Compile Include="Games\Flip\FlipBoard.cs" />
     <Compile Include="Games\Flip\FlipBoardTileButton.cs" />
     <Compile Include="Games\Flip\FlipGameView.xaml.cs">
       <DependentUpon>FlipGameView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Games\Flood\FloodGameControll.cs" />
+    <Compile Include="Games\Flood\FloodGameView.xaml.cs">
+      <DependentUpon>FloodGameView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Games\GamesToolbar.xaml.cs">
       <DependentUpon>GamesToolbar.xaml</DependentUpon>
@@ -137,6 +154,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Games\MineSweeper\Assets\Bomb.png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Thumbnail\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Games\Fifteen\Thumbnail_Fifteen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Games\Sixteen\Thumbnail_Sixteen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

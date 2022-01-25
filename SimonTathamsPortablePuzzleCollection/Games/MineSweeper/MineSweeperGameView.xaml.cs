@@ -125,10 +125,8 @@ namespace SimonTathamsPortablePuzzleCollection.Games.MineSweeper
                             UpdateTile(row, col);
                         }
                     }
-
                 }
-            }
-           
+            }  
         }
 
 
