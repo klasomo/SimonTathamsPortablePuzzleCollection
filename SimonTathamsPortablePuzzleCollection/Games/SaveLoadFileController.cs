@@ -8,22 +8,36 @@ using System.Threading.Tasks;
 
 namespace SimonTathamsPortablePuzzleCollection.Games
 {
-    class GameSaveFileController
+    class SaveLoadFileController
     {
-        public void SaveGame()
+        public static void SaveGame(string FilePath, Object GameObject)
         {
-
+            
+            FileStream stream = new FileStream(FilePath, FileMode.Create);
+            try
+            {
+                BinaryFormatter binFormatter = new BinaryFormatter();
+                binFormatter.Serialize(stream, GameObject);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                stream.Close();
+            }
         }
 
-        public Object LoadGame(string FilePath, Type objectType)
+        public static Object LoadGame(string FilePath, Type objectType)
         {
             object tmp = Activator.CreateInstance(objectType);
-           
+
             FileStream stream = new FileStream(FilePath, FileMode.Open);
             try
             {
                 BinaryFormatter formatter = new BinaryFormatter();
-                tmp = Convert.ChangeType(formatter.Deserialize(stream),objectType);
+                tmp = Convert.ChangeType(formatter.Deserialize(stream), objectType);
             }
             catch (Exception ex)
             {

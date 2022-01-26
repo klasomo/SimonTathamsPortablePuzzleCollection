@@ -30,6 +30,6 @@
         <!--<Sixteen:SixteenGameView x:Name="SixteenView" DockPanel.Dock="Top" Height="400"/>-->
         <!--<Flip:FlipGameView x:Name="FlipView" DockPanel.Dock="Top" Height="400"/>-->
         <!--<Flood:FloodGameView/>-->
-        <!--<Fifteen:FifteenGameView/>-->
+        <Fifteen:FifteenGameView/>
     </Grid>
 </Window>

@@ -9,10 +9,10 @@
     <StackPanel HorizontalAlignment="Center" Width="400">
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Label FontSize="18"  Height="30" VerticalContentAlignment="Center">File Name:</Label>
-            <TextBox Height="30" VerticalContentAlignment="Center" FontSize="18">DateiName</TextBox>
-            <Button>Load</Button>
+            <TextBox Height="30" Name="SelectedFileName" VerticalContentAlignment="Center" FontSize="18" Width="100" Text=" "></TextBox>
+            <Button Name="SubmitButton" Content="Load"></Button>
         </StackPanel>
-        <ListBox x:Name="LBFiles" Padding="10">
+        <ListBox x:Name="LBFiles" Padding="10" SelectionChanged="ListBoxSelectionChanged">
             
         </ListBox>
     </StackPanel>

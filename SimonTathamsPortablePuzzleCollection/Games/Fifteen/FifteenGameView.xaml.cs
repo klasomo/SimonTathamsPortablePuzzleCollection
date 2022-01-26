@@ -26,6 +26,17 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Fifteen
 
         private string gameTitle = "Fifteen";
         private string gameInfo = "FifteenInfo";
+        private string saveFilePath = "../../Saves/Fifteen/";
+        public string SaveFilePath {
+            get
+            {
+                return saveFilePath;
+            }
+            set
+            {
+                saveFilePath = value;
+            }
+        }
 
         public Image Thumbnail
         {
@@ -73,9 +84,23 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Fifteen
             UpdateBoard();
         }
 
+        public void LoadGame()
+        {
+            SaveFileWindow LoadWindow = new SaveFileWindow(SaveFilePath, Fifteen.GetType(),Fifteen);
+            LoadWindow.ShowDialog();
+            //Fifteen = (FifteenGameController)LoadWindow.gameControllerObject;
+            UpdateBoard();
+        }
+
+        public void SaveGame()
+        {
+            SaveFileWindow SaveWindow = new SaveFileWindow(SaveFilePath, Fifteen.GetType(),Fifteen);
+            SaveWindow.ShowDialog();
+        }
+
         public FifteenGameView()
         {
-            ToolBarView test = new ToolBarView(SolveGame, NewGame);
+            ToolBarView test = new ToolBarView(SolveGame, NewGame, LoadGame, SaveGame);
           
             string directory = Directory.GetCurrentDirectory();
             Fifteen = new FifteenGameController(4, 4);

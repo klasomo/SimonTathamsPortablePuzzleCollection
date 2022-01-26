@@ -18,7 +18,7 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Sixteen
     /// <summary>
     /// Interaktionslogik für SixteenGameView.xaml
     /// </summary>
-    public partial class SixteenGameView : UserControl, IGame
+    public partial class SixteenGameView : UserControl
     {
         private Image thumbnail = new Image() { Source = new BitmapImage(new Uri("../../Games/Sixteen/Thumbnail_Sixteen.png", UriKind.Relative))};
 

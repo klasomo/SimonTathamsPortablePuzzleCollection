@@ -9,7 +9,7 @@
     <ToolBarTray Background="White">
         <ToolBar>
             <Button Content="Main Menu" Click="BtnMainMenu_Click"/>
-            <Button Content="Save Game" Click="BtnSafeGame_Click"/>
+            <Button Content="Save Game" Click="BtnSaveGame_Click"/>
             <Button Content="Load Game" Click="BtnLoadGame_Click"/>
             <Button Content="Solve Game" Click="BtnSolveGame_Click"/>
             <Button Content="New Game" Click="BtnNewGame_Click"/>

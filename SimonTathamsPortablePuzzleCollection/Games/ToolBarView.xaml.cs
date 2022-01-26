@@ -24,12 +24,16 @@ namespace SimonTathamsPortablePuzzleCollection.Games
 
         BtnDelegate solveGame;
         BtnDelegate newGame;
-        public ToolBarView(Action solveGameAction, Action newGameAction)
+        BtnDelegate loadGame;
+        BtnDelegate saveGame;
+        public ToolBarView(Action solveGameAction, Action newGameAction, Action loadGameAction, Action saveGameAction)
         {
             
             InitializeComponent();
             solveGame = new BtnDelegate(solveGameAction);
             newGame = new BtnDelegate(newGameAction);
+            loadGame = new BtnDelegate(loadGameAction);
+            saveGame = new BtnDelegate(saveGameAction);
         }
 
         private void BtnMainMenu_Click(object sender, RoutedEventArgs e)
@@ -37,14 +41,14 @@ namespace SimonTathamsPortablePuzzleCollection.Games
 
         }
 
-        private void BtnSafeGame_Click(object sender, RoutedEventArgs e)
+        private void BtnSaveGame_Click(object sender, RoutedEventArgs e)
         {
-
+            saveGame();
         }
 
         private void BtnLoadGame_Click(object sender, RoutedEventArgs e)
         {
-
+            loadGame();
         }
 
         private void BtnSolveGame_Click(object sender, RoutedEventArgs e)

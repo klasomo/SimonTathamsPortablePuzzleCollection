@@ -24,14 +24,12 @@ namespace SimonTathamsPortablePuzzleCollection
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<IGame> gameList = new List<IGame>() { new FifteenGameView(), new SixteenGameView()};
+        List<IGame> gameList = new List<IGame>() { new FifteenGameView()};
         public MainWindow()
         {
             InitializeComponent();
             //CreateCollectionGrid();
 
-            SaveFileWindow test = new SaveFileWindow("../../Saves/Fifteen/");
-            test.ShowDialog();
         }
 
         private void CreateCollectionGrid()

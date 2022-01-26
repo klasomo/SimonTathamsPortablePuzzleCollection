@@ -6,12 +6,25 @@ using System.Threading.Tasks;
 
 namespace SimonTathamsPortablePuzzleCollection.Games.Fifteen
 {
+    [Serializable()]
+
+
     class FifteenGameController
     {
         public List<List<int>> Board = new List<List<int>>();
 
+        public struct BoardPosition
+        {
+            public BoardPosition(int row, int col)
+            {
+                Row = row;
+                Col = col;
+            }
+            public int Row { get; set; }
+            public int Col { get; set; }
+        }
 
-        FifteenTileButton EmptySquare;
+        BoardPosition EmptySquare;
 
         public int RowCount;
         public int ColCount;
@@ -27,14 +40,25 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Fifteen
             SetupBoard();
         }
 
+        public FifteenGameController()
+        {
+
+        }
+
+        public FifteenGameController(FifteenGameController gameObject)
+        {
+            this.ColCount = gameObject.ColCount;
+            this.RowCount = gameObject.RowCount;
+            this.Board = gameObject.Board;
+          
+        }
 
         public FifteenGameController(int row, int col)
         {
             RowCount = row;
             ColCount = col;
-            EmptySquare = new FifteenTileButton(row-1, col-1);
-            SetupBoard();
-            ShuffleBoard();
+            EmptySquare = new BoardPosition(row - 1, col - 1);
+            NewGame();
         }
 
         private void SetupBoard()
