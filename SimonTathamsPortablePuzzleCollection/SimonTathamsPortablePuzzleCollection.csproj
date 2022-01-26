@@ -79,7 +79,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Games\SaveFileWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Games\Sixteen\SixteenGameView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Games\ToolBarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -105,21 +113,29 @@
     <Compile Include="Games\Flood\FloodGameView.xaml.cs">
       <DependentUpon>FloodGameView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Games\GameSaveFileController.cs" />
     <Compile Include="Games\GamesToolbar.xaml.cs">
       <DependentUpon>GamesToolbar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Games\Guess\GuessGameView.xaml.cs">
       <DependentUpon>GuessGameView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Games\IGame.cs" />
     <Compile Include="Games\MineSweeper\MineSweeperBoard.cs" />
     <Compile Include="Games\MineSweeper\MineSweeperTile.cs" />
     <Compile Include="Games\MineSweeper\MineSweeperGameView.xaml.cs">
       <DependentUpon>MineSweeperGameView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Games\MineSweeper\MineSweeperTileButton.cs" />
+    <Compile Include="Games\SaveFileWindow.xaml.cs">
+      <DependentUpon>SaveFileWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Games\Sixteen\SixteenArrowButton.cs" />
     <Compile Include="Games\Sixteen\SixteenGameView.xaml.cs">
       <DependentUpon>SixteenGameView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Games\ToolBarView.xaml.cs">
+      <DependentUpon>ToolBarView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -156,6 +172,12 @@
     <Resource Include="Games\MineSweeper\Assets\Bomb.png.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Saves\Flip\" />
+    <Folder Include="Saves\Flood\" />
+    <Folder Include="Saves\Guess\" />
+    <Folder Include="Saves\MineSweeper\" />
+    <Folder Include="Saves\Sixteen\" />
+    <Folder Include="Saves\Sudoku\" />
     <Folder Include="Thumbnail\" />
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +185,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Games\Sixteen\Thumbnail_Sixteen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Saves\Fifteen\test1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Saves\Fifteen\test2.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

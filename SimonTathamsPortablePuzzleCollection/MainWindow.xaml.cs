@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using SimonTathamsPortablePuzzleCollection.Games;
+using SimonTathamsPortablePuzzleCollection.Games.Fifteen;
+using SimonTathamsPortablePuzzleCollection.Games.Sixteen;
 
 namespace SimonTathamsPortablePuzzleCollection
 {
@@ -21,22 +24,30 @@ namespace SimonTathamsPortablePuzzleCollection
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<UserControl> gameList = new List<UserControl>();
+        List<IGame> gameList = new List<IGame>() { new FifteenGameView(), new SixteenGameView()};
         public MainWindow()
         {
-            GetThumbnails();
             InitializeComponent();
-            
+            //CreateCollectionGrid();
+
+            SaveFileWindow test = new SaveFileWindow("../../Saves/Fifteen/");
+            test.ShowDialog();
         }
 
-        private void GetThumbnails()
+        private void CreateCollectionGrid()
         {
-            string folderPath = "../../Games";
-            foreach (string file in Directory.GetFiles(folderPath,"Thumbnail*.*",SearchOption.AllDirectories))
+            foreach (IGame usercontrol in gameList)
             {
-                Image Thumbnail = new Image();
-                Uri uri = new Uri(file,UriKind.Relative);
-                Thumbnail.Source = new BitmapImage(uri);
+                StackPanel GameInfo = new StackPanel() { Orientation = Orientation.Vertical, Margin = new Thickness(30)};
+                usercontrol.Thumbnail.Style = this.FindResource("ImageCollectionStyle") as Style;
+                GameInfo.Children.Add(usercontrol.Thumbnail);
+
+                TextBlock GameName = new TextBlock() { Text = usercontrol.GameTitle };
+                GameName.Style = this.FindResource("GameNameCollectionSyle") as Style;
+                GameName.TextAlignment = TextAlignment.Center;
+                GameInfo.Children.Add(GameName);
+
+                GameCollection.Children.Add(GameInfo);
             }
         }
     }

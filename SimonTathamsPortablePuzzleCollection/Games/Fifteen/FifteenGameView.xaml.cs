@@ -12,21 +12,77 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace SimonTathamsPortablePuzzleCollection.Games.Fifteen
 {
     /// <summary>
     /// Interaktionslogik für FifteenGameView.xaml
     /// </summary>
-    public partial class FifteenGameView : UserControl
+    public partial class FifteenGameView : UserControl, IGame
     {
         private FifteenGameController Fifteen;
+        private Image thumbnail = new Image() { Source = new BitmapImage(new Uri("../../Games/Fifteen/Thumbnail_Fifteen.png", UriKind.Relative))};
+
+        private string gameTitle = "Fifteen";
+        private string gameInfo = "FifteenInfo";
+
+        public Image Thumbnail
+        {
+            get
+            {
+                return thumbnail;
+            }
+            set
+            {
+                thumbnail = value;
+            }
+        }
+        public string GameTitle
+        {
+            get
+            {
+                return gameTitle;
+            }
+            set
+            {
+                gameTitle = value;
+            }
+        }
+        public string GameInfo
+        {
+            get
+            {
+                return gameInfo;
+            }
+            set
+            {
+                gameInfo = value;
+            }
+        }
+
+        public void SolveGame()
+        {
+            Fifteen.SolveGame();
+            UpdateBoard();
+        }
+
+        public void NewGame()
+        {
+            Fifteen.NewGame();
+            UpdateBoard();
+        }
 
         public FifteenGameView()
         {
+            ToolBarView test = new ToolBarView(SolveGame, NewGame);
+          
+            string directory = Directory.GetCurrentDirectory();
             Fifteen = new FifteenGameController(4, 4);
             InitializeComponent();
-            CreateGrid(4,4);
+            DockPanel.SetDock(test, Dock.Top);
+            MainDockPanel.Children.Add(test);
+            CreateGrid(4, 4);
             UpdateBoard();
         }
 

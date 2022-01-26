@@ -18,8 +18,56 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Sixteen
     /// <summary>
     /// Interaktionslogik für SixteenGameView.xaml
     /// </summary>
-    public partial class SixteenGameView : UserControl
+    public partial class SixteenGameView : UserControl, IGame
     {
+        private Image thumbnail = new Image() { Source = new BitmapImage(new Uri("../../Games/Sixteen/Thumbnail_Sixteen.png", UriKind.Relative))};
+
+        private string gameTitle = "Sixteen";
+        private string gameInfo = "SixteenInfo";
+
+        public Image Thumbnail
+        {
+            get
+            {
+                return thumbnail;
+            }
+            set
+            {
+                thumbnail = value;
+            }
+        }
+        public string GameTitle
+        {
+            get
+            {
+                return gameTitle;
+            }
+            set
+            {
+                gameTitle = value;
+            }
+        }
+        public string GameInfo
+        {
+            get
+            {
+                return gameInfo;
+            }
+            set
+            {
+                gameInfo = value;
+            }
+        }
+
+        public void SolveGame()
+        {
+
+        }
+
+        public void NewGame()
+        {
+
+        }
         public SixteenGameView()
         {
             InitializeComponent();

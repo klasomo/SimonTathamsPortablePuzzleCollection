@@ -16,6 +16,17 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Fifteen
         public int RowCount;
         public int ColCount;
 
+        public void NewGame()
+        {
+            SetupBoard();
+            ShuffleBoard();
+        }
+
+        public void SolveGame()
+        {
+            SetupBoard();
+        }
+
 
         public FifteenGameController(int row, int col)
         {
@@ -29,6 +40,9 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Fifteen
         private void SetupBoard()
         {
             int cellValue = 1;
+            Board.Clear();
+            EmptySquare.Row = RowCount-1;
+            EmptySquare.Col = ColCount-1;
             
             for(int i = 0; i < RowCount; i++)
             {

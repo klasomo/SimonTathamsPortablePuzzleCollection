@@ -10,14 +10,26 @@
         xmlns:Flip ="clr-namespace:SimonTathamsPortablePuzzleCollection.Games.Flip"
         xmlns:Flood ="clr-namespace:SimonTathamsPortablePuzzleCollection.Games.Flood"
         xmlns:Fifteen ="clr-namespace:SimonTathamsPortablePuzzleCollection.Games.Fifteen"
+        xmlns:Toolbar ="clr-namespace:SimonTathamsPortablePuzzleCollection.Games"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500" Width="800">
+    <Window.Resources>
+        <Style x:Key="ImageCollectionStyle" TargetType="{x:Type Image}">
+            <Setter Property="Width" Value="200" />
+        </Style>
+        <Style x:Key="GameNameCollectionSyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="30" />
+        </Style>
+    </Window.Resources>
 
-    <Grid>
+    <Grid Name="MainGrid">
+        <WrapPanel Name="GameCollection">
+            
+        </WrapPanel>
         <!--<MineSweeper:MineSweeperGameView x:Name="MineSweeperView" DockPanel.Dock="Top" VerticalAlignment="Top" Height="400"/>-->
         <!--<Sixteen:SixteenGameView x:Name="SixteenView" DockPanel.Dock="Top" Height="400"/>-->
         <!--<Flip:FlipGameView x:Name="FlipView" DockPanel.Dock="Top" Height="400"/>-->
         <!--<Flood:FloodGameView/>-->
-        <Fifteen:FifteenGameView/>
+        <!--<Fifteen:FifteenGameView/>-->
     </Grid>
 </Window>
