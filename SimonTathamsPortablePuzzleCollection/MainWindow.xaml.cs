@@ -14,9 +14,11 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using SimonTathamsPortablePuzzleCollection.Games;
+using SimonTathamsPortablePuzzleCollection.Games.Guess;
 using SimonTathamsPortablePuzzleCollection.Games.Fifteen;
 using SimonTathamsPortablePuzzleCollection.Games.Flip;
 using SimonTathamsPortablePuzzleCollection.Games.Sixteen;
+using SimonTathamsPortablePuzzleCollection.Games.Sudoku;
 
 namespace SimonTathamsPortablePuzzleCollection
 {
@@ -25,7 +27,7 @@ namespace SimonTathamsPortablePuzzleCollection
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<IGame> gameList = new List<IGame>() { new FifteenGameView(), new FlipGameView()};
+        List<IGame> gameList = new List<IGame>() { new FifteenGameView(), new FlipGameView(), new GuessGameView(), new SudokuGameView()};
 
         public MainWindow()
         {
@@ -33,8 +35,6 @@ namespace SimonTathamsPortablePuzzleCollection
             ShowMainMenu();
             ToolBarView.EventshowMainMenu += ShowMainMenu;
         }
-
-
 
         private void ShowMainMenu()
         {

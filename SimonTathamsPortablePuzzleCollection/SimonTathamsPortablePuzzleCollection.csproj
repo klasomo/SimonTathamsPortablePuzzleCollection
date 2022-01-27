@@ -75,6 +75,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Games\Guess\GuessGameView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Games\MineSweeper\MineSweeperGameView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -84,6 +88,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Games\Sixteen\SixteenGameView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Games\Sudoku\SudokuGameView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -119,6 +127,12 @@
     <Compile Include="Games\GameTypeWindow.xaml.cs">
       <DependentUpon>GameTypeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Games\Guess\GuessBoard.cs" />
+    <Compile Include="Games\Guess\GuessColorPalette.cs" />
+    <Compile Include="Games\Guess\GuessGameView.xaml.cs">
+      <DependentUpon>GuessGameView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Games\Guess\PlaygroundEllipse.cs" />
     <Compile Include="Games\IGame.cs" />
     <Compile Include="Games\MineSweeper\MineSweeperBoard.cs" />
     <Compile Include="Games\MineSweeper\MineSweeperTile.cs" />
@@ -134,6 +148,11 @@
     <Compile Include="Games\Sixteen\SixteenGameView.xaml.cs">
       <DependentUpon>SixteenGameView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Games\Sudoku\SudokuBoard.cs" />
+    <Compile Include="Games\Sudoku\SudokuGameView.xaml.cs">
+      <DependentUpon>SudokuGameView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Games\Sudoku\SudokuTileButton.cs" />
     <Compile Include="Games\ToolBarView.xaml.cs">
       <DependentUpon>ToolBarView.xaml</DependentUpon>
     </Compile>
@@ -194,6 +213,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Games\Flip\Thumbnail_Flip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Games\Guess\Thumbnail_Guess.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Games\Sudoku\Thumbnail_Sudoku.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

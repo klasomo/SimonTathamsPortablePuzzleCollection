@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\App.xaml
-10-2063007690
+12955650999
 
-25-1929063068
+32554134553
 13-1505183044
-Games\Fifteen\FifteenGameView.xaml;Games\Flip\FlipGameView.xaml;Games\Flood\FloodGameView.xaml;Games\GamesToolbar.xaml;Games\GameTypeWindow.xaml;Games\MineSweeper\MineSweeperGameView.xaml;Games\SaveFileWindow.xaml;Games\Sixteen\SixteenGameView.xaml;Games\ToolBarView.xaml;MainWindow.xaml;
+Games\Fifteen\FifteenGameView.xaml;Games\Flip\FlipGameView.xaml;Games\Flood\FloodGameView.xaml;Games\GamesToolbar.xaml;Games\GameTypeWindow.xaml;Games\Guess\GuessGameView.xaml;Games\MineSweeper\MineSweeperGameView.xaml;Games\SaveFileWindow.xaml;Games\Sixteen\SixteenGameView.xaml;Games\Sudoku\SudokuGameView.xaml;Games\ToolBarView.xaml;MainWindow.xaml;
 
 False
 

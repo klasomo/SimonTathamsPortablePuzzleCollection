@@ -31,3 +31,7 @@ C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPo
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\GameTypeWindow.g.cs
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\GameTypeWindow.baml
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\SimonTathamsPortablePuzzleCollection.csproj.AssemblyReference.cache
+C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Guess\GuessGameView.g.cs
+C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Guess\GuessGameView.baml
+C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Sudoku\SudokuGameView.g.cs
+C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Sudoku\SudokuGameView.baml
