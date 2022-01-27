@@ -36,7 +36,11 @@ namespace SimonTathamsPortablePuzzleCollection.Games
 
             FolderPath = _saveFilePath;
             InitializeComponent();
-            DisplayFilesFromDirectory(FolderPath);
+            Image removeIcon = new Image() { Source = new BitmapImage(new Uri("../../Games/RemoveIcon.png", UriKind.Relative)), Height=30, Width=30};
+            removeIcon.MouseLeftButtonDown += new MouseButtonEventHandler(DeleteFile);
+            FileOptions.Children.Add(removeIcon);
+
+            DisplayFilesFromDirectory();
             if((new System.Diagnostics.StackTrace()).GetFrame(1).GetMethod().Name == "LoadGame")
             {
                 SubmitButton.Click += LoadGame;
@@ -49,10 +53,10 @@ namespace SimonTathamsPortablePuzzleCollection.Games
             }
         }
 
-        private void DisplayFilesFromDirectory(string saveFilePath)
+        private void DisplayFilesFromDirectory()
         {
-            DirectoryInfo d = new DirectoryInfo(saveFilePath);
-
+            DirectoryInfo d = new DirectoryInfo(FolderPath);
+            LBFiles.Items.Clear();
             FileInfo[] Files = d.GetFiles("*.dat");
 
             foreach (FileInfo file in Files)
@@ -65,6 +69,7 @@ namespace SimonTathamsPortablePuzzleCollection.Games
                 TextBlock fileName = new TextBlock() { FontSize = 15 };
                 fileName.Text = (file.Name.Split('.'))[0];
                 DockPanel.SetDock(fileName, Dock.Left);
+
 
                 TextBlock fileDate = new TextBlock() { FontSize = 12};
                 fileDate.Text = file.LastWriteTime.ToString();
@@ -81,10 +86,23 @@ namespace SimonTathamsPortablePuzzleCollection.Games
             }
         }
 
+        public void DeleteFile(object sender, MouseEventArgs e)
+        {
+            if (File.Exists(FilePath))
+            {
+                File.Delete(FilePath);
+            }
+            DisplayFilesFromDirectory();
+        }
+
         public void ListBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DockPanel SelectedDockPanel = (DockPanel)((ListBox)sender).SelectedItem;
-            SelectedFileName.Text = ((TextBlock)SelectedDockPanel.Children[1]).Text.ToString();
+            if(LBFiles.SelectedItem != null)
+            {
+                SelectedFileName.Text = ((TextBlock)SelectedDockPanel.Children[1]).Text.ToString();
+            }
+            
         }
 
         public void LoadGame(Object sender, RoutedEventArgs e)

@@ -230,5 +230,8 @@
   <ItemGroup>
     <Resource Include="Games\MineSweeper\Thumbnail_MineSweeper.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Games\RemoveIcon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

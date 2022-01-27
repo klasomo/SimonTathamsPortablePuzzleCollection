@@ -235,6 +235,7 @@ namespace SimonTathamsPortablePuzzleCollection.Games.MineSweeper
                 {
                     btn.Click += new RoutedEventHandler(Tile_Click);
                 }
+                btn.Background = Brushes.LightGray;
                 btn.MouseRightButtonUp += new MouseButtonEventHandler(Tile_RightClick);
             }
             GridMineSweeperGame.Children.Add(btn);
@@ -288,6 +289,8 @@ namespace SimonTathamsPortablePuzzleCollection.Games.MineSweeper
                 }
             }
         }
+
+
 
         public void Tile_RightClick(object sender, RoutedEventArgs e)
         {
