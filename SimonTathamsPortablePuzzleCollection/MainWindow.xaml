@@ -11,7 +11,7 @@
         xmlns:Fifteen ="clr-namespace:SimonTathamsPortablePuzzleCollection.Games.Fifteen"
         xmlns:Toolbar ="clr-namespace:SimonTathamsPortablePuzzleCollection.Games"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800">
+        Title="MainWindow" Height="600" Width="850">
     <Window.Resources>
         <Style x:Key="ImageCollectionStyle" TargetType="{x:Type Image}">
             <Setter Property="Width" Value="200" />
@@ -20,12 +20,9 @@
             <Setter Property="FontSize" Value="30" />
         </Style>
     </Window.Resources>
+    <ScrollViewer>
+        <Grid Name="MainGrid">
 
-    <Grid Name="MainGrid">
-        <!--<MineSweeper:MineSweeperGameView x:Name="MineSweeperView" DockPanel.Dock="Top" VerticalAlignment="Top" Height="400"/>-->
-        <!--<Sixteen:SixteenGameView x:Name="SixteenView" DockPanel.Dock="Top" Height="400"/>-->
-        <!--<Flip:FlipGameView x:Name="FlipView" DockPanel.Dock="Top" Height="400"/>-->
-        <!--<Flood:FloodGameView/>-->
-        <!--<Fifteen:FifteenGameView/>-->
-    </Grid>
+        </Grid>
+    </ScrollViewer>
 </Window>

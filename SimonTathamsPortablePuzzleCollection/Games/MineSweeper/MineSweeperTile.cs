@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimonTathamsPortablePuzzleCollection.Games.MineSweeper
 {
+    [Serializable()]
     class MineSweeperTile
     {
         public bool isRevealed { get; set; }

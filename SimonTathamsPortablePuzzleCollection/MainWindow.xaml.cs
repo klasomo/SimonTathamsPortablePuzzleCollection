@@ -20,6 +20,7 @@ using SimonTathamsPortablePuzzleCollection.Games.Flip;
 using SimonTathamsPortablePuzzleCollection.Games.Sixteen;
 using SimonTathamsPortablePuzzleCollection.Games.Sudoku;
 using SimonTathamsPortablePuzzleCollection.Games.Flood;
+using SimonTathamsPortablePuzzleCollection.Games.MineSweeper;
 
 namespace SimonTathamsPortablePuzzleCollection
 {
@@ -28,7 +29,7 @@ namespace SimonTathamsPortablePuzzleCollection
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<IGame> gameList = new List<IGame>() { new FifteenGameView(), new FlipGameView(), new GuessGameView(), new SudokuGameView(), new SixteenGameView(), new FloodGameView()};
+        List<IGame> gameList = new List<IGame>() { new FifteenGameView(), new FlipGameView(), new SudokuGameView(), new SixteenGameView(), new FloodGameView(), new MineSweeperGameView(), new GuessGameView() };
 
         public MainWindow()
         {
@@ -47,6 +48,8 @@ namespace SimonTathamsPortablePuzzleCollection
             {
                 StackPanel GameInfo = new StackPanel() { Orientation = Orientation.Vertical, Margin = new Thickness(30) };
                 GameInfo.Children.Clear();
+                
+
                 Image thumbnail = new Image() { Source = new BitmapImage(new Uri(usercontrol.ThumbnailPath, UriKind.Relative)) };
                 thumbnail.Style = this.FindResource("ImageCollectionStyle") as Style;
                 GameInfo.Children.Add(thumbnail);

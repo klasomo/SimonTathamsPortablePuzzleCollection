@@ -7,11 +7,10 @@
              xmlns:gameViews="clr-namespace:SimonTathamsPortablePuzzleCollection.Games"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <!--<StackPanel Orientation="Vertical">
-        <gameViews:GamesToolbar x:Name="GameToolBarView" Height="30"/>
-        
-    </StackPanel>-->
-    <Grid Name="GridMineSweeperGame" Height="400" Width="400">
+    <DockPanel Name="MainDockPanel">
+        <Grid Name="GridMineSweeperGame" Height="400" Width="400" DockPanel.Dock="Bottom">
 
-    </Grid>
+        </Grid>
+    </DockPanel>
+
 </UserControl>

@@ -189,9 +189,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Games\MineSweeper\Assets\Bomb.png.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Saves\Flip\" />
     <Folder Include="Saves\Flood\" />
     <Folder Include="Saves\Guess\" />
@@ -223,6 +220,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Games\Flood\Thumbnail_Flood.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Games\MineSweeper\Assets\Mine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Games\MineSweeper\Assets\Flag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Games\MineSweeper\Thumbnail_MineSweeper.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

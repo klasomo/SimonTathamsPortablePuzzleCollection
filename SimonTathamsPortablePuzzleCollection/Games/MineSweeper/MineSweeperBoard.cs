@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimonTathamsPortablePuzzleCollection.Games.MineSweeper
 {
+    [Serializable()]
     class MineSweeperBoard
     {
         public List<List<MineSweeperTile>> Board = new List<List<MineSweeperTile>>();
@@ -18,6 +19,36 @@ namespace SimonTathamsPortablePuzzleCollection.Games.MineSweeper
             RowCount = row;
             ColCount = col;
             MineCount = mineCount;
+            NewGame();
+        }
+
+        public MineSweeperBoard()
+        {
+
+        }
+
+        public MineSweeperBoard(MineSweeperBoard _gameObject)
+        {
+            this.RowCount = _gameObject.RowCount;
+            this.ColCount = _gameObject.ColCount;
+            this.MineCount = _gameObject.MineCount;
+            this.Board = _gameObject.Board;
+        }
+
+        public void SolveGame()
+        {
+            for (int i = 0; i < RowCount; i++)
+            {
+               
+                for (int j = 0; j < ColCount; j++)
+                {
+                    Board[i][j].isRevealed = true;
+                }
+            }
+        }
+
+        public void NewGame()
+        {
             SetEmptyBoard();
             DistributeMinesRandomly();
             CalculateCellValues();
@@ -25,6 +56,7 @@ namespace SimonTathamsPortablePuzzleCollection.Games.MineSweeper
 
         public void SetEmptyBoard()
         {
+            Board.Clear();
             for(int i = 0; i < RowCount; i++)
             {
                 Board.Add(new List<MineSweeperTile>());

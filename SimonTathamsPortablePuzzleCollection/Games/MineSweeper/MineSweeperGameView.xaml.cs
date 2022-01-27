@@ -18,25 +18,137 @@ namespace SimonTathamsPortablePuzzleCollection.Games.MineSweeper
     /// <summary>
     /// Interaktionslogik für MineSweeperGameView.xaml
     /// </summary>
-    public partial class MineSweeperGameView : UserControl
+    public partial class MineSweeperGameView : UserControl, IGame
     {
+        private string thumbnailPath = "../../Games/MineSweeper/Thumbnail_MineSweeper.png";
 
-        MineSweeperBoard board;
-        public MineSweeperGameView()
+
+        private string gameTitle = "MineSweeper";
+        private string gameInfo = "MineSweeperInfo";
+        private string saveFilePath = "../../Saves/MineSweeper/";
+
+        private List<string> options = new List<String>() { "Beginner", "Intermediate", "Expert"};
+        public string SaveFilePath
         {
-            board = new MineSweeperBoard(16, 16, 35);
-            InitializeComponent();
-            DisplayBoard(16, 16);
+            get
+            {
+                return saveFilePath;
+            }
+            set
+            {
+                saveFilePath = value;
+            }
         }
 
-        public void DisplayBoard(int rows, int cols)
+        public string ThumbnailPath
         {
-            CreateGrid(rows, cols);
+            get
+            {
+                return thumbnailPath;
+            }
+            set
+            {
+                thumbnailPath = value;
+            }
+        }
+        public string GameTitle
+        {
+            get
+            {
+                return gameTitle;
+            }
+            set
+            {
+                gameTitle = value;
+            }
+        }
+        public string GameInfo
+        {
+            get
+            {
+                return gameInfo;
+            }
+            set
+            {
+                gameInfo = value;
+            }
+        }
+        public void SolveGame()
+        {
+            board.SolveGame();
+            UpdateBoard();
+        }
+
+        public void NewGame()
+        {
+            board.NewGame();
+            UpdateBoard();
+        }
+
+        public void LoadGame()
+        {
+            SaveFileWindow LoadWindow = new SaveFileWindow(SaveFilePath, board.GetType(), board);
+            LoadWindow.ShowDialog();
+            board = new MineSweeperBoard((MineSweeperBoard)LoadWindow.gameControllerObject);
+
+            UpdateBoard();
+        }
+
+        public void SaveGame()
+        {
+            SaveFileWindow SaveWindow = new SaveFileWindow(SaveFilePath, board.GetType(), board);
+            SaveWindow.ShowDialog();
+        }
+
+        public void ChangeType(string selectedOption)
+        {
+            switch (selectedOption)
+            {
+                case "Beginner":
+                    board = new MineSweeperBoard(9, 9, 10);
+                    break;
+                case "Intermediate":
+                    board = new MineSweeperBoard(16, 16, 40);
+                    break;
+                case "Expert":
+                    board = new MineSweeperBoard(30, 16, 99);
+                    break;
+ 
+            }
+            DisplayBoard();
+        }
+
+        private void ShowToolBar()
+        {
+            ToolBarView _toolBar = new ToolBarView(SolveGame, NewGame, LoadGame, SaveGame, options);
+            _toolBar.EventGameTypeChanged += ChangeType;
+            DockPanel.SetDock(_toolBar, Dock.Top);
+            MainDockPanel.Children.Add(_toolBar);
+        }
+
+        MineSweeperBoard board;
+
+
+        public MineSweeperGameView()
+        {
+            board = new MineSweeperBoard(16, 16, 40);
+            InitializeComponent();
+            ShowToolBar();
+            DisplayBoard();
+        }
+
+        public void DisplayBoard()
+        {
+            CreateGrid(board.RowCount, board.ColCount);
             UpdateBoard();
         }
 
         public void CreateGrid(int rows, int cols)
         {
+            GridMineSweeperGame.Children.Clear();
+            GridMineSweeperGame.RowDefinitions.Clear();
+            GridMineSweeperGame.ColumnDefinitions.Clear();
+
             for (int i = 0; i < cols; i++)
             {
                 ColumnDefinition Column = new ColumnDefinition();
@@ -52,6 +164,8 @@ namespace SimonTathamsPortablePuzzleCollection.Games.MineSweeper
 
         public void UpdateBoard()
         {
+
+            GridMineSweeperGame.Children.Clear();
             for (int r = 0; r < board.RowCount; r++)
             {
                 for (int c = 0; c < board.ColCount; c++)
@@ -69,21 +183,53 @@ namespace SimonTathamsPortablePuzzleCollection.Games.MineSweeper
             {
                 int cellValue = board.Board[r][c].value;
                 btn.Background = Brushes.White;
-                if (cellValue == 0)
+                switch (cellValue)
                 {
-                    floodFill(r, c);
+                    case -1:
+                        Image bomb = new Image() { Source = new BitmapImage(new Uri("../../Games/MineSweeper/Assets/Mine.png", UriKind.Relative))};
+                        btn.Content = bomb;
+                        break;
+                    case 0:
+                        floodFill(r, c);
+                        break;
+                    case 1:
+                        btn.Foreground = Brushes.Blue;
+                        break;
+                    case 2:
+                        btn.Foreground = Brushes.Green;
+                        break;
+                    case 3:
+                        btn.Foreground = Brushes.Red;
+                        break;
+                    case 4:
+                        btn.Foreground = Brushes.DarkBlue;
+                        break;
+                    case 5:
+                        btn.Foreground = Brushes.Brown;
+                        break;
+                    case 6:
+                        btn.Foreground = Brushes.Cyan;
+                        break;
+                    case 7:
+                        btn.Foreground = Brushes.Black;
+                        break;
+                    case 8:
+                        btn.Foreground = Brushes.DarkGray;
+                        break;
                 }
-                else
+                if(cellValue != -1 && cellValue != 0)
                 {
                     btn.Content = cellValue.ToString();
                 }
+                    
                 
             }
             else
             {
                 if (board.Board[r][c].isFlagMarked)
                 {
-                    btn.Background = Brushes.Red;
+                    Image flag = new Image() { Source = new BitmapImage(new Uri("../../Games/MineSweeper/Assets/Flag.png", UriKind.Relative)) };
+                    btn.Content = flag;
                 }
                 else
                 {
@@ -121,7 +267,6 @@ namespace SimonTathamsPortablePuzzleCollection.Games.MineSweeper
                         if (board.Board[row + rowOffset][col + colOffset].value != -1 && board.Board[row + rowOffset][col + colOffset].isRevealed == false)
                         {
                             board.Board[row + rowOffset][col + colOffset].isRevealed = true;
-                            Console.WriteLine($"{row + rowOffset}, {col + colOffset}");
                             UpdateTile(row, col);
                         }
                     }
