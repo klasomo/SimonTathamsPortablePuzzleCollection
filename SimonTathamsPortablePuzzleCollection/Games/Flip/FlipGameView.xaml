@@ -6,7 +6,10 @@
              xmlns:local="clr-namespace:SimonTathamsPortablePuzzleCollection.Games.Flip"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Name="GridFlipGame" Width="400" Height="400">
-            
-    </Grid>
+    <DockPanel Name="MainDockPanel">
+        <Grid Name="GridFlipGame" Width="400" Height="400" DockPanel.Dock="Bottom">
+
+        </Grid>
+    </DockPanel>
+
 </UserControl>

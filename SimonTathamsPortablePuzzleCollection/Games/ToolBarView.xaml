@@ -15,11 +15,8 @@
             <Button Content="New Game" Click="BtnNewGame_Click"/>
             <Button  Content="Type..." Click="BTnType_Click" >
                 <Button.ContextMenu>
-                    <ContextMenu >
-                        <MenuItem Header="First file"/>
-                        <MenuItem Header="Second file"/>
-                        <MenuItem Header="Third file"/>
-                        <MenuItem Header="Fourth file"/>
+                    <ContextMenu Name="TypeContextMenu">
+                        
                     </ContextMenu>
                 </Button.ContextMenu>
             </Button>

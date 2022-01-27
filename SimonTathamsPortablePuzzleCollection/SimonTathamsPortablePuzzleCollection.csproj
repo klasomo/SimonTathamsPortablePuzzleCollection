@@ -71,7 +71,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Games\Guess\GuessGameView.xaml">
+    <Page Include="Games\GameTypeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -116,8 +116,8 @@
     <Compile Include="Games\GamesToolbar.xaml.cs">
       <DependentUpon>GamesToolbar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Games\Guess\GuessGameView.xaml.cs">
-      <DependentUpon>GuessGameView.xaml</DependentUpon>
+    <Compile Include="Games\GameTypeWindow.xaml.cs">
+      <DependentUpon>GameTypeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Games\IGame.cs" />
     <Compile Include="Games\MineSweeper\MineSweeperBoard.cs" />
@@ -191,6 +191,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Saves\Fifteen\test2.dat" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Games\Flip\Thumbnail_Flip.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

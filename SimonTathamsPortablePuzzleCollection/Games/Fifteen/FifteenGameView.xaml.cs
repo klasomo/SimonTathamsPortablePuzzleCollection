@@ -22,11 +22,13 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Fifteen
     public partial class FifteenGameView : UserControl, IGame
     {
         private FifteenGameController Fifteen;
-        private Image thumbnail = new Image() { Source = new BitmapImage(new Uri("../../Games/Fifteen/Thumbnail_Fifteen.png", UriKind.Relative))};
+        private string thumbnailPath = "../../Games/Fifteen/Thumbnail_Fifteen.png";
+        
 
         private string gameTitle = "Fifteen";
         private string gameInfo = "FifteenInfo";
         private string saveFilePath = "../../Saves/Fifteen/";
+        private List<string> options = new List<String>() {"4x4","5x5","6x6","7x7"};
         public string SaveFilePath {
             get
             {
@@ -38,15 +40,15 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Fifteen
             }
         }
 
-        public Image Thumbnail
+        public string ThumbnailPath
         {
             get
             {
-                return thumbnail;
+                return thumbnailPath;
             }
             set
             {
-                thumbnail = value;
+                thumbnailPath = value;
             }
         }
         public string GameTitle
@@ -88,7 +90,8 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Fifteen
         {
             SaveFileWindow LoadWindow = new SaveFileWindow(SaveFilePath, Fifteen.GetType(),Fifteen);
             LoadWindow.ShowDialog();
-            //Fifteen = (FifteenGameController)LoadWindow.gameControllerObject;
+            Fifteen = new FifteenGameController((FifteenGameController)LoadWindow.gameControllerObject);
+            
             UpdateBoard();
         }
 
@@ -98,23 +101,50 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Fifteen
             SaveWindow.ShowDialog();
         }
 
-        public FifteenGameView()
+        public void ChangeType(string selectedOption)
         {
-            ToolBarView test = new ToolBarView(SolveGame, NewGame, LoadGame, SaveGame);
-          
-            string directory = Directory.GetCurrentDirectory();
-            Fifteen = new FifteenGameController(4, 4);
-            InitializeComponent();
-            DockPanel.SetDock(test, Dock.Top);
-            MainDockPanel.Children.Add(test);
-            CreateGrid(4, 4);
+            switch (selectedOption)
+            {
+                case "4x4":
+                    Fifteen = new FifteenGameController(4, 4);
+                    break;
+                case "5x5":
+                    Fifteen = new FifteenGameController(5, 5);
+                    break;
+                case "6x6":
+                    Fifteen = new FifteenGameController(6, 6);
+                    break;
+                case "7x7":
+                    Fifteen = new FifteenGameController(7, 7);
+                    break;
+            }
             UpdateBoard();
+        }
+
+        public FifteenGameView()
+        { 
+            Fifteen = new FifteenGameController(4, 4);
+            
+            InitializeComponent();
+            ShowToolBar();
+            UpdateBoard();
+        }
+
+        private void ShowToolBar()
+        {
+            ToolBarView _toolBar = new ToolBarView(SolveGame, NewGame, LoadGame, SaveGame, options);
+            _toolBar.EventGameTypeChanged += ChangeType;
+            DockPanel.SetDock(_toolBar, Dock.Top);
+            MainDockPanel.Children.Add(_toolBar);
         }
 
         
 
         public void CreateGrid(int rows, int cols)
         {
+            GridFifteenBoard.Children.Clear();
+            GridFifteenBoard.ColumnDefinitions.Clear();
+            GridFifteenBoard.RowDefinitions.Clear();
             for (int i = 0; i < cols; i++)
             {
                 ColumnDefinition Column = new ColumnDefinition();
@@ -130,6 +160,7 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Fifteen
 
         public void UpdateBoard()
         {
+            CreateGrid(Fifteen.RowCount, Fifteen.ColCount);
             GridFifteenBoard.Children.Clear();
             for (int r = 0; r < Fifteen.RowCount; r++)
             {

@@ -7,24 +7,13 @@ using System.Threading.Tasks;
 namespace SimonTathamsPortablePuzzleCollection.Games.Fifteen
 {
     [Serializable()]
-
-
     class FifteenGameController
     {
         public List<List<int>> Board = new List<List<int>>();
 
-        public struct BoardPosition
-        {
-            public BoardPosition(int row, int col)
-            {
-                Row = row;
-                Col = col;
-            }
-            public int Row { get; set; }
-            public int Col { get; set; }
-        }
-
-        BoardPosition EmptySquare;
+        private int EmptySquareRow;
+        private int EmptySquareCol;
+        
 
         public int RowCount;
         public int ColCount;
@@ -50,14 +39,16 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Fifteen
             this.ColCount = gameObject.ColCount;
             this.RowCount = gameObject.RowCount;
             this.Board = gameObject.Board;
-          
+            this.EmptySquareCol = gameObject.EmptySquareCol;
+            this.EmptySquareRow = gameObject.EmptySquareRow;
         }
 
         public FifteenGameController(int row, int col)
         {
             RowCount = row;
             ColCount = col;
-            EmptySquare = new BoardPosition(row - 1, col - 1);
+            EmptySquareRow = row - 1;
+            EmptySquareCol = col - 1;
             NewGame();
         }
 
@@ -65,8 +56,8 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Fifteen
         {
             int cellValue = 1;
             Board.Clear();
-            EmptySquare.Row = RowCount-1;
-            EmptySquare.Col = ColCount-1;
+            EmptySquareRow = RowCount-1;
+            EmptySquareCol = ColCount-1;
             
             for(int i = 0; i < RowCount; i++)
             {
@@ -85,17 +76,17 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Fifteen
 
             for (int i = -1; i <= 1; i += 2)
             {
-                if (EmptySquare.Row + i >= 0 && EmptySquare.Row + i < RowCount)
+                if (EmptySquareRow + i >= 0 && EmptySquareRow + i < RowCount)
                 {
-                    validMoves.Add(new List<int>() { EmptySquare.Row + i, EmptySquare.Col });
+                    validMoves.Add(new List<int>() { EmptySquareRow + i, EmptySquareCol });
                 }
 
             }
             for (int i = -1; i <= 1; i += 2)
             {
-                if (EmptySquare.Col + i >= 0 && EmptySquare.Col + i < ColCount)
+                if (EmptySquareCol + i >= 0 && EmptySquareCol + i < ColCount)
                 {
-                    validMoves.Add(new List<int>() { EmptySquare.Row, EmptySquare.Col + i });
+                    validMoves.Add(new List<int>() { EmptySquareRow, EmptySquareCol + i });
                 }
 
             }
@@ -117,10 +108,10 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Fifteen
         private void SlideCell(int Clickedrow, int Clickedcol)
         {
             int tmp = Board[Clickedrow][Clickedcol];
-            Board[Clickedrow][Clickedcol] = Board[EmptySquare.Row][EmptySquare.Col];
-            Board[EmptySquare.Row][EmptySquare.Col] = tmp;
-            EmptySquare.Row = Clickedrow;
-            EmptySquare.Col = Clickedcol;
+            Board[Clickedrow][Clickedcol] = Board[EmptySquareRow][EmptySquareCol];
+            Board[EmptySquareRow][EmptySquareCol] = tmp;
+            EmptySquareRow = Clickedrow;
+            EmptySquareCol = Clickedcol;
         }
 
         public void ClickCell(int row, int col)

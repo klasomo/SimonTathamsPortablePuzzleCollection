@@ -23,15 +23,20 @@ namespace SimonTathamsPortablePuzzleCollection.Games
     {
         public Object gameControllerObject { get; set; }
         private Type gameControllerType { get; set; }
-        private string saveFilePath { get; set; }
+        private string FolderPath { get; set; }
+        private string FilePath { 
+            get {
+                return FolderPath + SelectedFileName.Text + ".dat";
+            }
+        }
         public SaveFileWindow(string _saveFilePath, Type _gameControllerObjectType, Object GameObjec)
         {
             gameControllerType = _gameControllerObjectType;
             gameControllerObject = GameObjec;
 
-            saveFilePath = _saveFilePath;
+            FolderPath = _saveFilePath;
             InitializeComponent();
-            DisplayFilesFromDirectory(saveFilePath);
+            DisplayFilesFromDirectory(FolderPath);
             if((new System.Diagnostics.StackTrace()).GetFrame(1).GetMethod().Name == "LoadGame")
             {
                 SubmitButton.Click += LoadGame;
@@ -80,16 +85,20 @@ namespace SimonTathamsPortablePuzzleCollection.Games
         {
             DockPanel SelectedDockPanel = (DockPanel)((ListBox)sender).SelectedItem;
             SelectedFileName.Text = ((TextBlock)SelectedDockPanel.Children[1]).Text.ToString();
-            
         }
 
         public void LoadGame(Object sender, RoutedEventArgs e)
         {
-            gameControllerObject = SaveLoadFileController.LoadGame(saveFilePath + SelectedFileName.Text + ".dat", gameControllerType);
+            if (File.Exists(FilePath))
+            {
+                gameControllerObject = SaveLoadFileController.LoadGame(FilePath, gameControllerType);
+                this.Close();
+            }
         }
         public void SaveGame(Object sender, RoutedEventArgs e)
         {
-            SaveLoadFileController.SaveGame(saveFilePath+SelectedFileName.Text+".dat", gameControllerObject);
+            SaveLoadFileController.SaveGame(FilePath, gameControllerObject);
+            this.Close();
         }
     }
 }

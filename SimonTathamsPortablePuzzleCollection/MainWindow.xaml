@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:SimonTathamsPortablePuzzleCollection"
         xmlns:MineSweeper="clr-namespace:SimonTathamsPortablePuzzleCollection.Games.MineSweeper"
         xmlns:Sixteen ="clr-namespace:SimonTathamsPortablePuzzleCollection.Games.Sixteen"
-        xmlns:Guess ="clr-namespace:SimonTathamsPortablePuzzleCollection.Games.Guess"
         xmlns:Flip ="clr-namespace:SimonTathamsPortablePuzzleCollection.Games.Flip"
         xmlns:Flood ="clr-namespace:SimonTathamsPortablePuzzleCollection.Games.Flood"
         xmlns:Fifteen ="clr-namespace:SimonTathamsPortablePuzzleCollection.Games.Fifteen"
@@ -23,13 +22,10 @@
     </Window.Resources>
 
     <Grid Name="MainGrid">
-        <WrapPanel Name="GameCollection">
-            
-        </WrapPanel>
         <!--<MineSweeper:MineSweeperGameView x:Name="MineSweeperView" DockPanel.Dock="Top" VerticalAlignment="Top" Height="400"/>-->
         <!--<Sixteen:SixteenGameView x:Name="SixteenView" DockPanel.Dock="Top" Height="400"/>-->
         <!--<Flip:FlipGameView x:Name="FlipView" DockPanel.Dock="Top" Height="400"/>-->
         <!--<Flood:FloodGameView/>-->
-        <Fifteen:FifteenGameView/>
+        <!--<Fifteen:FifteenGameView/>-->
     </Grid>
 </Window>

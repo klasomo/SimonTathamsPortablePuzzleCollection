@@ -7,6 +7,7 @@ using System.Windows.Media;
 
 namespace SimonTathamsPortablePuzzleCollection.Games.Flip
 {
+    [Serializable()]
     class FlipBoard
     {
         public List<List<bool>> board = new List<List<bool>>();
@@ -23,8 +24,19 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Flip
             ShuffleBoard();
         }
 
+        public FlipBoard(FlipBoard BoardObject)
+        {
+            this.board = BoardObject.board;
+            this.ColCount = BoardObject.ColCount;
+            this.RowCount = BoardObject.RowCount;
+        }
+        public FlipBoard()
+        {
+
+        }
         private void SetupBoard()
         {
+            board.Clear();
             for (int row = 0; row < RowCount; row++)
             {
                 board.Add(new List<bool>());
@@ -33,6 +45,11 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Flip
                     board[row].Add(false);
                 }
             }
+        }
+        public void NewGame()
+        {
+            SetupBoard();
+            ShuffleBoard();
         }
 
         public void FlipCell(int row, int col)
@@ -77,6 +94,19 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Flip
             }
             board[row][col] = !board[row][col];
         }
+
+        public void SolveGame()
+        {
+            for(int i = 0; i < RowCount; i++)
+            {
+                for(int j = 0; j< ColCount; j++)
+                {
+                    board[i][j] = false;
+                }
+            }
+        }
+
+
 
 
         public bool checkBoardisSolved()

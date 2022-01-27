@@ -1,7 +1,6 @@
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\bin\Debug\SimonTathamsPortablePuzzleCollection.exe.config
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\bin\Debug\SimonTathamsPortablePuzzleCollection.exe
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\bin\Debug\SimonTathamsPortablePuzzleCollection.pdb
-C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\SimonTathamsPortablePuzzleCollection.csproj.AssemblyReference.cache
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\MainWindow.g.cs
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\App.g.cs
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\SimonTathamsPortablePuzzleCollection_MarkupCompile.cache
@@ -14,14 +13,11 @@ C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPo
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\SimonTathamsPortablePuzzleCollection.exe
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\SimonTathamsPortablePuzzleCollection.pdb
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\MineSweeper\MineSweeperGameView.g.cs
-C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\MineSweeper\MineSweeperGameView.baml
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\GamesToolbar.g.cs
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\GamesToolbar.baml
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Sixteen\SixteenGameView.g.cs
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Sixteen\SixteenGameView.baml
-C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Guess\GuessGameView.g.cs
-C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Guess\GuessGameView.baml
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Flip\FlipGameView.g.cs
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Flip\FlipGameView.baml
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\Flood\FloodGameView.g.cs
@@ -32,3 +28,6 @@ C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPo
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\SaveFileWindow.baml
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\ToolBarView.g.cs
 C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\ToolBarView.baml
+C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\GameTypeWindow.g.cs
+C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\Games\GameTypeWindow.baml
+C:\Users\Niklas\source\repos\SimonTathamsPortablePuzzleCollection\SimonTathamsPortablePuzzleCollection\obj\Debug\SimonTathamsPortablePuzzleCollection.csproj.AssemblyReference.cache

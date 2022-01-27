@@ -20,25 +20,44 @@ namespace SimonTathamsPortablePuzzleCollection.Games
     /// </summary>
     public partial class ToolBarView : UserControl
     {
+        public static event Action EventshowMainMenu;
+        public event Action<string> EventGameTypeChanged;
+
         public delegate void BtnDelegate();
 
         BtnDelegate solveGame;
         BtnDelegate newGame;
         BtnDelegate loadGame;
         BtnDelegate saveGame;
-        public ToolBarView(Action solveGameAction, Action newGameAction, Action loadGameAction, Action saveGameAction)
+        public ToolBarView(Action solveGameAction, Action newGameAction, Action loadGameAction, Action saveGameAction, List<string> Options)
         {
-            
             InitializeComponent();
             solveGame = new BtnDelegate(solveGameAction);
             newGame = new BtnDelegate(newGameAction);
             loadGame = new BtnDelegate(loadGameAction);
             saveGame = new BtnDelegate(saveGameAction);
+            SetupDropDownType(Options);
+        }
+
+        private void SetupDropDownType(List<string> options)
+        {
+            foreach(string option in options)
+            {
+                MenuItem MIoption = new MenuItem();
+                MIoption.Header = option;
+                MIoption.Click += BtnTypeChanged_Click;
+                TypeContextMenu.Items.Add(MIoption);
+            }
+        }
+        private void BtnTypeChanged_Click(object sender, RoutedEventArgs e)
+        {
+            MenuItem ClickedMenuItem = sender as MenuItem;
+            EventGameTypeChanged(ClickedMenuItem.Header.ToString());
         }
 
         private void BtnMainMenu_Click(object sender, RoutedEventArgs e)
         {
-
+            EventshowMainMenu();
         }
 
         private void BtnSaveGame_Click(object sender, RoutedEventArgs e)

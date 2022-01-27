@@ -17,7 +17,7 @@ namespace SimonTathamsPortablePuzzleCollection.Games
 {
     interface IGame
     {
-        Image Thumbnail { get;  set; }
+        string ThumbnailPath { get;  set; }
         string GameTitle { get; set; }
         string GameInfo { get; set; }
         string SaveFilePath { get; set; }
