@@ -19,6 +19,7 @@ using SimonTathamsPortablePuzzleCollection.Games.Fifteen;
 using SimonTathamsPortablePuzzleCollection.Games.Flip;
 using SimonTathamsPortablePuzzleCollection.Games.Sixteen;
 using SimonTathamsPortablePuzzleCollection.Games.Sudoku;
+using SimonTathamsPortablePuzzleCollection.Games.Flood;
 
 namespace SimonTathamsPortablePuzzleCollection
 {
@@ -27,7 +28,7 @@ namespace SimonTathamsPortablePuzzleCollection
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<IGame> gameList = new List<IGame>() { new FifteenGameView(), new FlipGameView(), new GuessGameView(), new SudokuGameView(), new SixteenGameView()};
+        List<IGame> gameList = new List<IGame>() { new FifteenGameView(), new FlipGameView(), new GuessGameView(), new SudokuGameView(), new SixteenGameView(), new FloodGameView()};
 
         public MainWindow()
         {

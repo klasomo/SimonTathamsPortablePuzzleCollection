@@ -221,5 +221,8 @@
   <ItemGroup>
     <Resource Include="Games\Sudoku\Thumbnail_Sudoku.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Games\Flood\Thumbnail_Flood.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

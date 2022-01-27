@@ -21,7 +21,7 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Sudoku
     public partial class SudokuGameView : UserControl, IGame
     {
         SudokuBoard SBoard;
-        
+        List<List<SudokuTileButton>> ButtonList = new List<List<SudokuTileButton>>();
         SudokuTileButton Previous = new SudokuTileButton(0, 0, 0);
         private string thumbnailPath = "../../Games/Sudoku/Thumbnail_Sudoku.png";
 
@@ -29,7 +29,7 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Sudoku
         private string gameTitle = "Sudoku";
         private string gameInfo = "Fill missing Numbers";
         private string saveFilePath = "../../Saves/Sudoku/";
-        private List<string> options = new List<String>() { "Super Easy", "Easy", "Normal", "Difficult", "Hard", "Expert", "Ridiculous","HAHA", "Empty" };
+        private List<string> options = new List<String>() { "Super Easy", "Easy", "Normal", "Difficult", "Hard", "Expert", "Ridiculous", "HAHA", "Empty" };
         public string SaveFilePath
         {
             get
@@ -83,9 +83,9 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Sudoku
             SBoard = new SudokuBoard();
             InitializeComponent();
             ShowToolBar();
-            SBoard.Difficulty = 4;
-            DisplayBoard(9, 9);
+            
             SBoard.GenerateSudoku();
+            DisplayBoard(9, 9);
         }
 
 
@@ -119,9 +119,10 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Sudoku
         /// <param name="cols">Number of columns</param>
         public void CreateTiles(int rows, int cols)
         {
+            ButtonList.Clear();
             for (int r = 0; r < rows; r++)
             {
-            
+                ButtonList.Add(new List<SudokuTileButton>());
                 for (int c = 0; c < cols; c++)
                 {
                     SudokuTileButton btn = new SudokuTileButton(r, c, 0);
@@ -139,7 +140,7 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Sudoku
                         btn.Text = (-SBoard.Board[r][c]).ToString();
                         btn.Foreground = Brushes.Red;
                     }
-                    
+
                     if (((c / 3) % 2 == 1) && (((r / 3) == 0) || ((r / 3) == 2)))
                         btn.Background = System.Windows.Media.Brushes.LightGray;
                     if (((c / 3) % 2 == 0) && ((r / 3) == 1))
@@ -153,6 +154,7 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Sudoku
                     btn.KeyUp += new KeyEventHandler(SudokuTastenEingabe);
                     btn.MouseEnter += new MouseEventHandler(SudokuMouseHover);
                     btn.MouseLeave += new MouseEventHandler(SudokuNotMouseHover);
+                    ButtonList[r].Add(btn);
                     GridSudokuGame.Children.Add(btn);
                     Grid.SetRow(btn, r);
                     Grid.SetColumn(btn, c);
@@ -169,23 +171,26 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Sudoku
             SudokuTileButton btn = sender as SudokuTileButton;
             int CellValue = 0;
             if (btn.Text == "1" || btn.Text == "2" || btn.Text == "3" || btn.Text == "4" || btn.Text == "5" || btn.Text == "6" || btn.Text == "7" || btn.Text == "8" || btn.Text == "9")
+            {
                 CellValue = Convert.ToInt32(btn.Text);
+                if (SBoard.CheckLegalMove(btn.Col, btn.Row, Convert.ToInt32(btn.Text)))
+                {
+                    btn.Foreground = Brushes.Black;
+                    SBoard.Board[btn.Row][btn.Col] = CellValue;
+                }
+                else
+                {
+                    btn.Foreground = Brushes.Red;
+                    SBoard.Board[btn.Row][btn.Col] = -CellValue;
+                }
+                if (SBoard.CheckWinningCondition())
+                {
+                    //TODO: Game Win Screen
+                }
+            }
             else
                 btn.Text = "";
-            if (SBoard.CheckLegalMove(btn.Col, btn.Row, Convert.ToInt32(btn.Text)))
-            {
-                btn.Foreground = Brushes.Black;
-                SBoard.Board[btn.Row][btn.Col] = CellValue;
-            }
-            else
-            {
-                btn.Foreground = Brushes.Red;
-                SBoard.Board[btn.Row][btn.Col] = -CellValue;
-            }
-            if (SBoard.CheckWinningCondition())
-            {
-                //TODO: Game Win Screen
-            }
+
         }
         /// <summary>
         /// Highlights the Tile that the Mouse hovers on and the cross.
@@ -197,8 +202,9 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Sudoku
             SudokuTileButton btn = sender as SudokuTileButton;
             for (int i = 0; i < 9; i++)
             {
-                btn.Background = Brushes.LightSkyBlue;
-                btn.Background = Brushes.LightSkyBlue;
+                ButtonList[i][btn.Col].Background = Brushes.LightSkyBlue;
+                ButtonList[btn.Row][i].Background = Brushes.LightSkyBlue;
+
             }
             Previous = btn;
         }
@@ -222,22 +228,22 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Sudoku
                     {
                         if (i / 3 == 1)
                         {
-                            btn.Background = Brushes.White;
+                            ButtonList[Previous.Row][i].Background = Brushes.White;
                         }
                         else
                         {
-                            btn.Background = Brushes.LightGray;
+                            ButtonList[Previous.Row][i].Background = Brushes.LightGray;
                         }
                     }
                     else
                     {
                         if (i / 3 == 1)
                         {
-                            btn.Background = Brushes.LightGray;
+                            ButtonList[Previous.Row][i].Background = Brushes.LightGray;
                         }
                         else
                         {
-                            btn.Background = Brushes.White;
+                            ButtonList[Previous.Row][i].Background = Brushes.White;
                         }
                     }
                 }
@@ -250,22 +256,22 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Sudoku
                     {
                         if (i / 3 == 1)
                         {
-                            btn.Background = Brushes.White;
+                            ButtonList[i][Previous.Col].Background = Brushes.White;
                         }
                         else
                         {
-                            btn.Background = Brushes.LightGray;
+                            ButtonList[i][Previous.Col].Background = Brushes.LightGray;
                         }
                     }
                     else
                     {
                         if (i / 3 == 1)
                         {
-                            btn.Background = Brushes.LightGray;
+                            ButtonList[i][Previous.Col].Background = Brushes.LightGray;
                         }
                         else
                         {
-                            btn.Background = Brushes.White;
+                            ButtonList[i][Previous.Col].Background = Brushes.White;
                         }
                     }
                 }
@@ -303,7 +309,7 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Sudoku
         public void ChangeType(string selectedOption)
         {
 
-            SBoard.Difficulty = options.IndexOf(selectedOption)+1;
+            SBoard.Difficulty = options.IndexOf(selectedOption) + 1;
             SBoard.GenerateSudoku();
             CreateTiles(9, 9);
         }

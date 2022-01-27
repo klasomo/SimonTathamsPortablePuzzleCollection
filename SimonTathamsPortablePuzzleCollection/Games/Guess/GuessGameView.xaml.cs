@@ -80,21 +80,6 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Guess
         {
             isSolved = false;
 
-            ////different level
-            //if (type == "Super")
-            //{
-            //    rows = 12;
-            //    cols = 5;
-            //    colors = 8;
-            //}
-            //else
-            //{
-            //    //Standard --> default
-            //    rows = 10;
-            //    cols = 4;
-            //    colors = 6;
-            //}
-
             Guess = new GuessBoard(Guess.RowCount, Guess.ColCount, Guess.AmountOfColors);
             DisplayBoard(Guess.RowCount, Guess.ColCount, Guess.AmountOfColors);
         }
