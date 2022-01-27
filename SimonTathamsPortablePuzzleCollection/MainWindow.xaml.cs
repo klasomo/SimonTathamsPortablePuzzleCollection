@@ -27,7 +27,7 @@ namespace SimonTathamsPortablePuzzleCollection
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<IGame> gameList = new List<IGame>() { new FifteenGameView(), new FlipGameView(), new GuessGameView(), new SudokuGameView()};
+        List<IGame> gameList = new List<IGame>() { new FifteenGameView(), new FlipGameView(), new GuessGameView(), new SudokuGameView(), new SixteenGameView()};
 
         public MainWindow()
         {

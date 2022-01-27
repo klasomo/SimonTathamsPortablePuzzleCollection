@@ -145,6 +145,7 @@
     </Compile>
     <Compile Include="Games\SaveLoadFileController.cs" />
     <Compile Include="Games\Sixteen\SixteenArrowButton.cs" />
+    <Compile Include="Games\Sixteen\SixteenGameController.cs" />
     <Compile Include="Games\Sixteen\SixteenGameView.xaml.cs">
       <DependentUpon>SixteenGameView.xaml</DependentUpon>
     </Compile>

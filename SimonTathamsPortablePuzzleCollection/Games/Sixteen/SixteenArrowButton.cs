@@ -9,9 +9,10 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Sixteen
 {
     class SixteenArrowButton : Button
     {
-        int verticalShift;
+        private int verticalShift;
 
-        int VerticalShift {
+        public int VerticalShift
+        {
             get
             {
                 return verticalShift;
@@ -19,12 +20,12 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Sixteen
             set
             {
                 verticalShift = value;
-            }          
+            }
         }
 
-        int horizontalShift;
+        private int horizontalShift;
 
-        int HorizontalShift
+        public int HorizontalShift
         {
             get
             {
@@ -51,7 +52,7 @@ namespace SimonTathamsPortablePuzzleCollection.Games.Sixteen
         }
 
 
-        public SixteenArrowButton(int row, int col,int verticalShift = 0, int horizontalShift = 0)
+        public SixteenArrowButton(int row, int col, int verticalShift = 0, int horizontalShift = 0)
         {
             Row = row;
             Col = col;

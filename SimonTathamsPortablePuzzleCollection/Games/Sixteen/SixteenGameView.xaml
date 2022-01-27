@@ -6,7 +6,9 @@
              xmlns:local="clr-namespace:SimonTathamsPortablePuzzleCollection.Games.Sixteen"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Name="GridSixteenBoard" Height="400" Width="400">
-        
-    </Grid>
+    <DockPanel Name="MainDockPanel">
+        <Grid Name="GridSixteenBoard" Height="400" Width="400" DockPanel.Dock="Bottom">
+
+        </Grid>
+    </DockPanel>
 </UserControl>
