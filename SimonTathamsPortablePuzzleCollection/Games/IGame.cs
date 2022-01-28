@@ -24,5 +24,8 @@ namespace SimonTathamsPortablePuzzleCollection.Games
 
         void NewGame();
         void SolveGame();
+
+        void ChangeType(string selectedOption);
+        void LoadGame();
     }
 }
